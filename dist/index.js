@@ -14,10 +14,28 @@ class User {
         this.name = name;
         this.email = email;
         this.user = user;
+        this._courseCount = 1;
         this.city = "";
     }
+    deleteToken() {
+        console.log("delete token");
+    }
+    get getApplyEmail() {
+        return `apply${this.email}`;
+    }
+    get courseCount() {
+        return this._courseCount;
+    }
+    set courseCount(num) {
+        // Set method - no return type // if you put any type it will give error
+        if (num <= 1) {
+            throw new Error("num should be more than 1");
+        }
+        this._courseCount = num;
+    }
 }
-const mansi = new User("mansi@gmail.com", "mansi", "user");
+const mansi = new User("mansi", "mansi@gmail.com", "user");
 // mansi.name = "manso"; // can't use publicaly if you have add private
 // mansi.city = "surat";
 // mansi.city = "delhi";
+// mansi.deleteToken() // can't access
