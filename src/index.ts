@@ -11,7 +11,7 @@
 // }
 
 class User {
-  private _courseCount = 1;
+  protected _courseCount = 1; // Protected class can be access which inherits any class
   readonly city: string = "";
   constructor(
     public name: string,
@@ -32,11 +32,18 @@ class User {
   }
 
   set courseCount(num) {
-    // Set method - no return type // if you put any type it will give error
+    // Set method - no return type // if you put any of type it will give error  ##Important
     if (num <= 1) {
       throw new Error("num should be more than 1");
     }
     this._courseCount = num;
+  }
+}
+
+class SubUser extends User {
+  isFamily: boolean = true;
+  changeCourseCount() {
+    this._courseCount = 5;
   }
 }
 
