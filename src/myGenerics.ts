@@ -25,3 +25,12 @@ interface Bottle {
 }
 
 identityFour<Bottle>({ brand: "ff", type: 9 });
+
+function getProduct<T>(product: T[]): T {
+  return product[4];
+}
+
+const getMoreProduct = <T>(product: T[]): T => {
+  const myIndex = 89;
+  return product[myIndex];
+};
